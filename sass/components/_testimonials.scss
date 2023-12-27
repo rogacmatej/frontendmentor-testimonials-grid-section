@@ -1,0 +1,167 @@
+@use '../abstracts' as *;
+
+.bg-primary {
+  background: $color-primary;
+}
+.bg-secondary {
+  background: $color-secondary;
+}
+.bg-tertiary {
+  background: $color-tertiary;
+}
+.bg-neutral {
+  background: $color-neutral;
+}
+
+.text-neutral {
+  color: $color-text-neutral;
+}
+
+.text-primary {
+  color: $color-text-primary;
+}
+
+.text-secondary {
+  color: $color-text-secondary;
+}
+
+.testimonial-grid {
+  width: min(100% - 4.8rem, 111rem);
+  margin-inline: auto;
+  display: grid;
+  gap: 2.4rem;
+  grid-auto-columns: 1fr;
+  grid-template-areas:
+    'one'
+    'two'
+    'three'
+    'four'
+    'five';
+}
+
+.testimonial {
+  padding: 2.6rem 3.2rem 3.2rem 3.2rem;
+  box-shadow: 40px 60px 50px -47px rgba(72, 85, 106, 0.25);
+  border-radius: 0.8rem;
+
+  &.quote {
+    z-index: 1;
+    @include pseudo() {
+      width: 10.4rem;
+      height: 10.2rem;
+      top: 0;
+      right: 2.4rem;
+      z-index: -1;
+      background: url(../images/bg-pattern-quotation.svg);
+    }
+  }
+
+  &:nth-child(1) {
+    grid-area: one;
+
+    .profile__image {
+      border-color: #a775f1;
+    }
+  }
+
+  &:nth-child(2) {
+    grid-area: two;
+  }
+
+  &:nth-child(3) {
+    grid-area: three;
+  }
+
+  &:nth-child(4) {
+    grid-area: four;
+
+    .profile__image {
+      border-color: #733fc8;
+    }
+  }
+
+  &:nth-child(5) {
+    grid-area: five;
+  }
+
+  &__profile {
+    display: flex;
+    gap: 1.7rem;
+    align-items: center;
+    margin-bottom: 1.8rem;
+  }
+
+  &__lead {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 1.6rem;
+  }
+
+  &__quote {
+    margin-top: 4rem;
+    opacity: 0.7;
+  }
+}
+
+.profile {
+  &__image {
+    box-sizing: content-box;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    border: 2px solid transparent;
+  }
+
+  &__name {
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+  }
+
+  &__role {
+    margin-top: 0.4rem;
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+    opacity: 0.5;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .testimonial-grid {
+    grid-template-areas:
+      'one one'
+      'two three'
+      'four four'
+      'five five';
+  }
+
+  .testimonial {
+    &.quote {
+      @include pseudo() {
+        right: 8rem;
+      }
+    }
+
+    &__quote {
+      margin-top: 1.6rem;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .testimonial-grid {
+    gap: 3rem;
+    grid-template-areas:
+      'one one two'
+      'three four four'
+      'five five five';
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .testimonial-grid {
+    grid-template-areas:
+      'one one two five'
+      'three four four five';
+  }
+}

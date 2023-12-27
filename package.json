@@ -1,0 +1,26 @@
+{
+  "name": "single-price-grid-component",
+  "description": "Frontend Mentor | Single price grid component",
+  "main": "index.js",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "author": "Matej Rogač",
+  "license": "ISC",
+  "scripts": {
+    "sass:dev": "sass --watch --update --style=expanded   --no-source-map sass/style.scss assets/styles/style.css",
+    "sass:build": "sass --no-source-map --style=compressed sass/style.scss public/assets/styles/style.css",
+    "css:build": "npm run sass:build & postcss public/assets/styles/style.css -o public/assets/styles/style.css",
+    "dev": "npm run sass:dev",
+    "build": "npm run css:build",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "autoprefixer": "^7.1.4",
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.32",
+    "postcss-cli": "^11.0.0",
+    "sass": "^1.69.5"
+  }
+}
